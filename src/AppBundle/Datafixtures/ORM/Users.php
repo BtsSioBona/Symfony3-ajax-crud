@@ -12,10 +12,11 @@ class Users extends AbstractFixture
     public function load(ObjectManager $manager)
     {
         for ($i=0; $i<5; $i++){
-            $person = new Person();
-            $person->setName($this->getName());
+            $user = new User();
+            $user->setName($this->getName());
+            $user->setAge(rand(18, 100));
 
-            $manager->persist($person);
+            $manager->persist($user);
         }
 
         $manager->flush();
